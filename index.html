@@ -67,7 +67,7 @@
     <div class="indicacion">Ábrelo tocando 8 veces</div>
     
     <div class="tarjeta" id="tarjeta">
-        <img id="imagenSorpresa" class="imagen-sorpresa" src="mujer.jpg" alt="Sorpresa" />
+        <img id="imagenSorpresa" class="imagen-sorpresa" src="images/regalo.png" alt="Sorpresa" />
     </div>
 
     <script>
@@ -86,10 +86,10 @@
         
         imagenSorpresa.addEventListener("click", () => {
             if (imagenActual === 1) {
-                imagenSorpresa.src = "chayane-madres.png"; // Cambia a la segunda imagen
+                imagenSorpresa.src = "images/chayane-madres.png"; // Cambia a la segunda imagen
                 imagenActual = 2;
             } else {
-                imagenSorpresa.src = "mujer.jpg"; // Vuelve a la primera imagen
+                imagenSorpresa.src = "images/mujer.jpg"; // Vuelve a la primera imagen
                 imagenActual = 1;
             }
         });
