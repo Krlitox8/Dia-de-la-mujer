@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Día de la Mujer</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            display: flex; 
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            background: #ffccf9; 
+            font-family: Arial, sans-serif; 
+            text-align: center;
+            position: relative;
+        }
+        .regalo {
+            width: 150px;
+            height: 150px;
+            background: url('regalo.png') no-repeat center/cover;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            position: relative;
+            z-index: 10;
+        }
+        .regalo:active { transform: scale(1.1); }
+        .indicacion {
+            font-size: 18px;
+            color: #d63384;
+            margin-top: 20px;
+        }
+        .pista {
+            font-size: 16px;
+            color: #555;
+            margin-top: 10px;
+        }
+        .tarjeta {
+            width: 90%;
+            max-width: 400px;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            z-index: -1;
+        }
+        .visible { opacity: 1; transform: translate(-50%, -50%) scale(1); z-index: 20; }
+        .imagen-sorpresa {
+            width: 100%;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="regalo" id="regalo"></div>
+    <div class="indicacion">Ábrelo tocando 8 veces</div>
+    
+    <div class="tarjeta" id="tarjeta">
+        <img id="imagenSorpresa" class="imagen-sorpresa" src="mujer.jpg" alt="Sorpresa" />
+    </div>
+
+    <script>
+        let contadorToques = 0;
+        let imagenActual = 1;
+        const regalo = document.getElementById("regalo");
+        const tarjeta = document.getElementById("tarjeta");
+        const imagenSorpresa = document.getElementById("imagenSorpresa");
+        
+        regalo.addEventListener("click", () => {
+            contadorToques++;
+            if (contadorToques === 8) {
+                tarjeta.classList.add("visible");
+            }
+        });
+        
+        imagenSorpresa.addEventListener("click", () => {
+            if (imagenActual === 1) {
+                imagenSorpresa.src = "chayane-madres.png"; // Cambia a la segunda imagen
+                imagenActual = 2;
+            } else {
+                imagenSorpresa.src = "mujer.jpg"; // Vuelve a la primera imagen
+                imagenActual = 1;
+            }
+        });
+    </script>
+</body>
+</html>
